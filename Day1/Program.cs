@@ -18,12 +18,12 @@ var testDirections = new List<string>
 // testDirections.ForEach(d => Console.WriteLine(SantaFloorFinder.Find(d)));
 // testDirections.ForEach(d => Console.WriteLine(SantaFloorFinder.Find_V2(d)));
 
-// var actualDirections = await File.ReadAllTextAsync("./inputPuzzle_1.txt");
+// var actualDirections = await File.ReadAllTextAsync("./OopsWrongPuzzle/inputPuzzle_1.txt");
 
 // Console.WriteLine(SantaFloorFinder.Find(actualDirections));
 // Console.WriteLine(SantaFloorFinder.Find_V2(actualDirections));
 
-var calibrationLines = await File.ReadAllLinesAsync("./inputPuzzle_2.txt");
+var calibrationLines = await File.ReadAllLinesAsync("./inputPuzzle.txt");
 // var calibrationLines = await File.ReadAllLinesAsync("./TestInput.txt");
 
 var numbersText = new Dictionary<string, string>
