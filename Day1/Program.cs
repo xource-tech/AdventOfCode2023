@@ -23,51 +23,9 @@ var testDirections = new List<string>
 // Console.WriteLine(SantaFloorFinder.Find(actualDirections));
 // Console.WriteLine(SantaFloorFinder.Find_V2(actualDirections));
 
-var calibrationLines = await File.ReadAllLinesAsync("./inputPuzzle.txt");
-// var calibrationLines = await File.ReadAllLinesAsync("./TestInput.txt");
+var result = await FindFirstAndLastDigit.V1();
+var result2 = await FindFirstAndLastDigit.V2();
 
-var numbersText = new Dictionary<string, string>
-{
-   {"one", "o1e"},
-   {"two", "t2o"},
-   {"three", "t3e"},
-   {"four", "f4r"},
-   {"five", "f5e"},
-   {"six","s6x"},
-   {"seven", "s7n"},
-   {"eight", "e8t"},
-   {"nine", "n9e"},
-};
-
-var calibration = new List<int>();
-foreach (var line in calibrationLines)
-{
-    var pattern = @"(one|two|three|four|five|six|seven|eight|nine)";
-    
-    bool didMatch;
-    var convertedLine = line;
-
-    do
-    {
-        didMatch = false;
-        convertedLine = Regex.Replace(convertedLine, pattern, match =>
-        {
-            didMatch = true;
-            var matchValue = match.Value.ToLowerInvariant();
-            return numbersText[matchValue];
-        });
-    } while (didMatch);
-    
-    var digits = convertedLine.Where(char.IsDigit).ToList();
-    var stringNumber = string.Join("", digits.First(), digits.Last());
-    var finalNumber = int.Parse(stringNumber);
-    Console.WriteLine(finalNumber + " " + line);
-    
-    calibration.Add(finalNumber);
-}
-
-var result = calibration.Sum();
 
 Console.WriteLine(result);
-
-
+Console.WriteLine(result2);
