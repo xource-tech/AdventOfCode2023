@@ -22,7 +22,7 @@ public class Line
 		foreach (Match location in locations)
 		{
 			var part = new Part(int.Parse(location.Value));
-			
+
 			if (location.Value.Where((t, i) => CheckAdjecent(location.Index + i, part, lines)).Any())
 			{
 				parts.Add(part);
@@ -38,14 +38,14 @@ public class Line
 		lines.TryGetValue(Key + 1, out var below);
 
 		var adjecent = new List<AdjecentChar>();
-		adjecent.Add(new AdjecentChar(above?.Data, (Key -1, location-1)));
-		adjecent.Add(new AdjecentChar(above?.Data, (Key -1, location) ));
-		adjecent.Add(new AdjecentChar( above?.Data, (Key -1, location+1) ));
-		adjecent.Add(new AdjecentChar( Data, (Key, location-1) ));
-		adjecent.Add(new AdjecentChar( Data, (Key, location+1) ));
-		adjecent.Add(new AdjecentChar( below?.Data, (Key+1, location-1) ));
-		adjecent.Add(new AdjecentChar(below?.Data, (Key+1, location) ));
-		adjecent.Add(new AdjecentChar( below?.Data, (Key+1, location+1) ));
+		adjecent.Add(new AdjecentChar(above?.Data, (Key - 1, location - 1)));
+		adjecent.Add(new AdjecentChar(above?.Data, (Key - 1, location)));
+		adjecent.Add(new AdjecentChar(above?.Data, (Key - 1, location + 1)));
+		adjecent.Add(new AdjecentChar(Data, (Key, location - 1)));
+		adjecent.Add(new AdjecentChar(Data, (Key, location + 1)));
+		adjecent.Add(new AdjecentChar(below?.Data, (Key + 1, location - 1)));
+		adjecent.Add(new AdjecentChar(below?.Data, (Key + 1, location)));
+		adjecent.Add(new AdjecentChar(below?.Data, (Key + 1, location + 1)));
 
 		return adjecent.Any(a =>
 		{
@@ -83,6 +83,7 @@ public class Gear(Part part)
 		part
 	};
 }
+
 public class AdjecentChar(string? value, (int y, int x) position)
 {
 	public char? Char { get; } = value?.ElementAtOrDefault(position.x);
