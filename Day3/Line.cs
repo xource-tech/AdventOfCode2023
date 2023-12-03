@@ -2,18 +2,11 @@
 
 namespace Day3;
 
-public class Line
+public class Line(int key, string data, Dictionary<string, Gear> gears)
 {
-	public int Key { get; }
-	public string Data { get; }
-	public Dictionary<string, Gear> Gears { get; }
-
-	public Line(int key, string data, Dictionary<string, Gear> gears)
-	{
-		Key = key;
-		Data = data;
-		Gears = gears;
-	}
+	public int Key { get; } = key;
+	public string Data { get; } = data;
+	public Dictionary<string, Gear> Gears { get; } = gears;
 
 	public List<Part> GetEnginePartNumbers(Dictionary<int, Line> lines)
 	{
