@@ -23,9 +23,9 @@ var testDirections = new List<string>
 // Console.WriteLine(SantaFloorFinder.Find(actualDirections));
 // Console.WriteLine(SantaFloorFinder.Find_V2(actualDirections));
 
-var result = await FindFirstAndLastDigit.V1();
+// var result = await FindFirstAndLastDigit.V1();
 var result2 = await FindFirstAndLastDigit.V2();
 
 
-Console.WriteLine(result);
+// Console.WriteLine(result);
 Console.WriteLine(result2);
